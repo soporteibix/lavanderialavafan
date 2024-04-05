@@ -4,7 +4,8 @@ import axios from 'axios';
 const tokens = [
     "1d1132d976e9b68ba0ae528596771783e91aa9c1",
     "888d4a8c4dc28fdfd09c3612535e770fbcb5960a",
-    "4430ceceeee4ad477d5766f62f3c5af4b2ad9c5f"
+    "4430ceceeee4ad477d5766f62f3c5af4b2ad9c5f",
+    "618343296f350db2fdb513caf966f5d63c7e4f7a"
 ];
 
 // Función para obtener la fecha actual en formato "YYYY-MM-DD"
@@ -276,7 +277,7 @@ const processCustomerWithoutOrder = async (customer) => {
             }
         ],
         "tags": [
-            "api_cleancloud", "Colombia",
+            "api_cleancloud","Colombia"
         ]
     };
 
