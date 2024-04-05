@@ -25,6 +25,11 @@ const fifteenDaysAgo = new Date();
 //El ultimo dato determina la cantidad de dias atras que va a buscar, en este caso 5
 fifteenDaysAgo.setDate(fifteenDaysAgo.getDate() - 2);
 
+//Definicion de variables: 
+let cachedCustomersData = null;
+let cachedOrdersData = null;
+
+
 const customersOptions = token => ({
     method: 'post',
     url: 'https://cleancloudapp.com/api/getCustomer',
@@ -399,12 +404,9 @@ const runProcess = async () => {
 };
 
 // Configurar un intervalo para actualizar los datos cada minuto (60,000 milisegundos)
-const updateInterval = 12 * 60 * 1000; // Cada 30 minutos
+const updateInterval = 10 * 60 * 1000; // Cada 30 minutos
 
 setInterval(async () => {
-    console.log('Antes de fetchCleanCloudData');
-    await fetchCleanCloudData();
-    console.log('Después de fetchCleanCloudData, antes de runProcess');
-    runProcess();
-    console.log('Después de runProcess');
-}, updateInterval);
+    console.log('Ejecutando fetchDataAndPost...');
+    await fetchDataWithTokens();
+}, 12 * 60 * 1000); // Cada 500 segundos (aproximadamente cada 8 minutos)
